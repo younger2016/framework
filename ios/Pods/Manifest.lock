@@ -1,0 +1,44 @@
+PODS:
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - React/Core (0.46.4):
+    - Yoga (= 0.46.4.React)
+  - React/RCTActionSheet (0.46.4):
+    - React/Core
+  - React/RCTImage (0.46.4):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.46.4):
+    - React/Core
+  - React/RCTNetwork (0.46.4):
+    - React/Core
+  - React/RCTText (0.46.4):
+    - React/Core
+  - React/RCTWebSocket (0.46.4):
+    - React/Core
+  - Yoga (0.46.4.React)
+
+DEPENDENCIES:
+  - libextobjc/RuntimeExtensions (~> 0.4)
+  - React/Core (from `../node_modules/react-native`)
+  - React/RCTActionSheet (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTLinkingIOS (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: ../node_modules/react-native
+  Yoga:
+    :path: ../node_modules/react-native/ReactCommon/yoga
+
+SPEC CHECKSUMS:
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  React: 596d8774642d10fea20b1f24cc591fcf633f73ad
+  Yoga: 98e24da91afe33bb43fedaf27dafede269c04fe8
+
+PODFILE CHECKSUM: 30ef17701c11e915b33b157be4deecf0e1909cee
+
+COCOAPODS: 1.2.1

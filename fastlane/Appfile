@@ -1,0 +1,11 @@
+app_identifier "com.hualala.mall" # The bundle identifier of your app
+apple_id "wangxiaofeng@hualala.com" # Your Apple email address
+
+team_id "HA4X85AZ3G" # Developer Portal Team ID
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
+
+
+# This line use to test post commit::wdd
+# Add chmode u+x post-Commit

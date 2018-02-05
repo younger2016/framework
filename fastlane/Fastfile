@@ -1,0 +1,127 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.53.1"
+
+default_platform :ios
+
+require './common_functions.rb'
+require './pgyer_api.rb'
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    ## BearyChat
+    ENV["BEARY_CHAT_URL"] = "https://hook.bearychat.com/=bw8hx/incoming/dd1fcaa830577c27f2ccac198575e2eb"
+    ## PGYER (蒲公英)
+    ENV["PGYER_API_KEY"] = "7a7919b01df3a657c933e6597fbbb0c1"
+    ENV["PGYER_USER_KEY"] = "59799625bf46d872a6298d6a3b62e5da"
+    ENV["IPA_OUTPUT_PATH"] = "../hll_mall_app_beta.ipa"
+
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    # match(type: "appstore") # more information: https://codesigning.guide
+    gym(scheme: "hll_mall_app") # Build your app - more options available
+    pilot
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    # match(type: "appstore")
+    # snapshot
+    gym(scheme: "hll_mall_app") # Build your app - more options available
+    deliver(force: true)
+    # frameit
+  end
+
+  desc "Register Devices And Update Match Repo"
+  lane :register_devices_and_upadte_match_repo do
+    register_devices(
+      devices: {
+        "chenshuang's iphone7" => '1a0062876977dfc76ba3841ab579096505fbda9a',
+        "duanzhihong's iphone" => '8f8b5be27609f83d5d9405491188d60faebcbaa7',
+        "zhaochuanchuan's iphone" => '9f0713eb4f551b2cc9346517c2bfd2a693c34b3e'
+      }
+    )
+    match(
+      git_url: "git@git.hualala.com:hualala_mall/hll_mall_fastlane_apple.git",
+      type: "development",
+      force_for_new_devices: true
+    )
+  end
+
+  # desc "Publish a new staging version to pgyer"
+  # lane :publish_to_pgyer_staging do
+  #   match(
+  #     git_url: "git@git.hualala.com:hualala_mall/hll_mall_fastlane_apple.git",
+  #     type: "development"
+  #   )
+  #   gym(
+  #     project: "ios/hll_mall_app.xcodeproj",
+  #     scheme: "hll_mall_app",
+  #     export_method: "development"
+  #   )
+  #   pgyer(api_key: "7a7919b01df3a657c933e6597fbbb0c1", user_key: "59799625bf46d872a6298d6a3b62e5da")
+  # end
+
+
+  lane :publish_to_pgyer_development do
+    match(
+      git_url: "http://git.hualala.com/hualala_mall/hualala_mall_dev_certificates.git",
+      type: "development"
+    )
+    gym(
+      project: "ios/hll_mall_app.xcodeproj",
+      scheme: "hll_mall_app_beta",
+      export_method: "development"
+    )
+    pgyer(
+      api_key: ENV["PGYER_API_KEY"],
+      user_key: ENV["PGYER_USER_KEY"]
+    )
+  end
+
+  # You can define as many lanes as you want
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded.
+# Learn more at https://github.com/fastlane/fastlane#metrics

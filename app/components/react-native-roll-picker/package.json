@@ -1,0 +1,79 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-roll-picker",
+        "scope": null,
+        "escapedName": "react-native-roll-picker",
+        "name": "react-native-roll-picker",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/lixiaozhang/Desktop/workspace/hsp/version03/hll_sc_app"
+    ]
+  ],
+  "_from": "react-native-roll-picker@latest",
+  "_id": "react-native-roll-picker@1.0.5",
+  "_inCache": true,
+  "_location": "/react-native-roll-picker",
+  "_nodeVersion": "7.6.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-native-roll-picker-1.0.5.tgz_1496735899972_0.475827009184286"
+  },
+  "_npmUser": {
+    "name": "yjy5264",
+    "email": "yjy5264@sina.com"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-roll-picker",
+    "scope": null,
+    "escapedName": "react-native-roll-picker",
+    "name": "react-native-roll-picker",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-roll-picker/-/react-native-roll-picker-1.0.5.tgz",
+  "_shasum": "1539693ffdb239e313e944c60a0aa6c37750c454",
+  "_shrinkwrap": null,
+  "_spec": "react-native-roll-picker",
+  "_where": "/Users/lixiaozhang/Desktop/workspace/hsp/version03/hll_sc_app",
+  "author": {
+    "name": "yjy"
+  },
+  "dependencies": {},
+  "description": "A cross-platform (iOS&Android), selector/picker component for React Native.",
+  "devDependencies": {
+    "react": "^15.1.0",
+    "react-native": "^0.27.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "1539693ffdb239e313e944c60a0aa6c37750c454",
+    "tarball": "https://registry.npmjs.org/react-native-roll-picker/-/react-native-roll-picker-1.0.5.tgz"
+  },
+  "gitHead": "c52fffd10d7669d193ba4a8092b666b88d6ce62d",
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "yjy5264",
+      "email": "yjy5264@sina.com"
+    }
+  ],
+  "name": "react-native-roll-picker",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.5"
+}
